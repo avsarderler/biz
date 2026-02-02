@@ -228,7 +228,7 @@
     <section class="grid">
       <div class="card span6">
         <h2>Ne kadar oldu?</h2>
-        <div class="muted">02.01.2026’ten beri…</div>
+        <div class="muted">01.02.2026’dan beri…</div>
         <div class="count" aria-label="Sayaç">
           <div class="box"><div class="num" id="days">0</div><div class="lbl">Gün</div></div>
           <div class="box"><div class="num" id="hours">00</div><div class="lbl">Saat</div></div>
@@ -251,7 +251,7 @@
             <div class="badge">✨</div>
             <div>
               <b>İlk gün</b>
-              <p>02.01.2026… ve her şey başka bir güzelliğe döndü.</p>
+              <p>01.02.2026… ve her şey başka bir güzelliğe döndü.</p>
             </div>
           </div>
           <div class="item">
@@ -287,17 +287,52 @@
 
       <div class="card span5">
         <h2>Şarkımız</h2>
-       <div class="muted">https://open.spotify.com/intl-tr/track/5rElOY8KtcQFqlSZ7hgEuC?si=87117c9509ae44c2</div>
-        <div style="margin-top:10px;border-radius:18px;overflow:hidden;border:1px solid var(--border)">
+        <div class="muted">Spotify üzerinden dinleyelim 🎧</div>
+
+        <div id="spotifyWrap" style="
+          margin-top:12px;
+          border-radius:18px;
+          overflow:hidden;
+          border:1px solid rgba(255,255,255,.18);
+          opacity:0;
+          transform: translateY(12px);
+          transition: all .8s ease;
+        ">
+
+          <div style="
+            text-align:center;
+            margin:8px 0;
+            font-size:14px;
+            opacity:.85;
+          ">
+            🎧 Bizim şarkımız
+          </div>
+
           <iframe
+            id="spotifyPlayer"
             style="border-radius:12px"
-            src="https://youtu.be/rYJjgfCfBOU?list=RDrYJjgfCfBOU"
-            width="100%" height="152" frameborder="0" allowfullscreen=""
+            src="https://open.spotify.com/embed/track/2nLtzopw4rPReszdYBJU6h?utm_source=generator"
+            width="100%"
+            height="152"
+            frameborder="0"
             allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
             loading="lazy">
           </iframe>
+
+          <div
+            id="nowPlaying"
+            style="
+              display:none;
+              text-align:center;
+              margin:8px 0;
+              font-size:13px;
+              opacity:.85;
+            ">
+            🎵 <b>Ey Aşk – Sezen Aksu</b> çalıyor
+          </div>
         </div>
-        <div class="note"></div>
+
+        <div class="note">Play’e basınca aşağıda “çalıyor” yazısı görünecek 💖</div>
       </div>
     </section>
 
@@ -310,7 +345,7 @@
   <div class="modal" id="modal">
     <div class="sheet">
       <h3>Ayşe’ye 💌</h3>
-      <textarea id="letter" placeholder="Seni Çok Seviyorum ❤️"></textarea>
+      <textarea id="letter" placeholder="Buraya sevgiline mesajını yaz..."></textarea>
       <div class="btnrow" style="margin-top:12px">
         <button id="saveLetter">Kaydet</button>
         <button class="secondary" id="closeLetter">Kapat</button>
@@ -325,8 +360,8 @@
     const SETTINGS = {
       name1: "Arif",
       name2: "Ayşe",
-      // 02.01.2026 için: 2 Ocak 2026, 20:00 Türkiye saati (istersen saati değiştir)
-      startDate: "2026-01-02T20:00:00+03:00",
+      // 01.02.2026 için: 1 Şubat 2026, 20:00 Türkiye saati (istersen saati değiştir)
+      startDate: "2026-02-01T20:00:00+03:00",
       passcode: "" // Şifre istemiyorum: boş
     };
 
@@ -395,6 +430,27 @@
         prompt("Kopyalamak için:", location.href);
       }
     });
+
+    // Spotify alanı yumuşak giriş
+    window.addEventListener("load", () => {
+      const wrap = document.getElementById("spotifyWrap");
+      if (wrap) {
+        setTimeout(() => {
+          wrap.style.opacity = "1";
+          wrap.style.transform = "translateY(0)";
+        }, 600);
+      }
+    });
+
+    // Kullanıcı player'a dokununca "çalıyor" yazısını göster
+    const spotifyPlayer = document.getElementById("spotifyPlayer");
+    const nowPlaying = document.getElementById("nowPlaying");
+
+    if (spotifyPlayer && nowPlaying) {
+      spotifyPlayer.addEventListener("click", () => {
+        nowPlaying.style.display = "block";
+      });
+    }
   </script>
 </body>
 </html>
