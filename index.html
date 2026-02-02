@@ -1,1 +1,400 @@
-<!doctype html> <html lang="tr"> <head> <meta charset="utf-8" /> <meta name="viewport" content="width=device-width, initial-scale=1" /> <title>Arif ❤️ Ayşe</title> <meta name="description" content="Arif ve Ayşe'ye özel küçük bir site." /> <style> :root{ --bg:#0b0f1a; --card:rgba(255,255,255,.06); --text:#e9ecff; --muted:rgba(233,236,255,.75); --accent:#ff5aa5; --accent2:#7c5cff; --border:rgba(255,255,255,.14); --shadow: 0 18px 60px rgba(0,0,0,.55); --radius:20px; } *{box-sizing:border-box} html,body{height:100%} body{ margin:0; font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial; color:var(--text); background: radial-gradient(1200px 800px at 20% 0%, rgba(124,92,255,.35), transparent 60%), radial-gradient(900px 600px at 90% 20%, rgba(255,90,165,.28), transparent 55%), radial-gradient(1000px 700px at 50% 100%, rgba(90,255,209,.08), transparent 60%), var(--bg); overflow-x:hidden; } .wrap{max-width:1000px;margin:0 auto;padding:28px 18px 80px} .pill{ display:inline-flex;gap:8px;align-items:center; padding:10px 14px;border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04)); border-radius:999px; box-shadow: 0 10px 30px rgba(0,0,0,.25); backdrop-filter: blur(10px); font-size:14px;color:var(--muted); } .pill .dot{ width:10px;height:10px;border-radius:50%; background:radial-gradient(circle at 30% 30%, #fff, var(--accent)); box-shadow: 0 0 18px rgba(255,90,165,.7); } .hero{ margin-top:16px; padding:26px; border-radius:var(--radius); border:1px solid var(--border); background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05)); box-shadow:var(--shadow); backdrop-filter: blur(10px); position:relative; overflow:hidden; } .hero:before{ content:""; position:absolute; inset:-2px; background: radial-gradient(600px 200px at 20% 0%, rgba(255,90,165,.25), transparent 60%), radial-gradient(500px 220px at 80% 20%, rgba(124,92,255,.25), transparent 65%); pointer-events:none; } .hero-inner{position:relative; display:grid; gap:18px} h1{margin:0;font-size:clamp(28px, 5vw, 44px);letter-spacing:-.02em} .sub{margin:0;color:var(--muted);font-size:16px;line-height:1.55} .names{display:flex;flex-wrap:wrap; gap:10px;align-items:center;margin-top:8px;} .tag{ padding:8px 12px;border-radius:999px; border:1px solid var(--border); background:rgba(255,255,255,.06); color:var(--text); font-weight:600; } .heart{ width:38px;height:38px;display:grid;place-items:center; border-radius:12px; background:linear-gradient(135deg, rgba(255,90,165,.25), rgba(124,92,255,.25)); border:1px solid var(--border); box-shadow: 0 10px 30px rgba(0,0,0,.25); font-size:20px; animation: pulse 1.8s ease-in-out infinite; } @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}} .grid{margin-top:18px;display:grid;grid-template-columns: repeat(12, 1fr);gap:14px;} .card{ grid-column: span 12; border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04)); border-radius:var(--radius); padding:18px; box-shadow: 0 14px 40px rgba(0,0,0,.35); backdrop-filter: blur(10px); } .card h2{margin:0 0 10px;font-size:18px} .muted{color:var(--muted)} .count{ display:grid; grid-template-columns: repeat(4, minmax(0,1fr)); gap:10px; margin-top:12px; } .box{ padding:14px 12px; border-radius:16px; border:1px solid var(--border); background:rgba(255,255,255,.06); text-align:center; } .num{font-size:26px;font-weight:800;letter-spacing:-.02em} .lbl{font-size:12px;color:var(--muted);margin-top:4px} .timeline{display:grid; gap:10px; margin-top:6px;} .item{ display:flex; gap:12px; align-items:flex-start; padding:12px;border-radius:16px;border:1px solid var(--border); background:rgba(255,255,255,.05); } .badge{ min-width:38px;height:38px;border-radius:12px; display:grid;place-items:center; background:rgba(255,90,165,.16); border:1px solid rgba(255,90,165,.22); font-size:18px; } .item b{display:block} .item p{margin:4px 0 0;color:var(--muted);line-height:1.5} .gallery{ display:grid; grid-template-columns: repeat(3, minmax(0,1fr)); gap:10px;margin-top:10px; } .ph{ aspect-ratio: 4 / 3; border-radius:16px; border:1px dashed rgba(255,255,255,.22); background: rgba(255,255,255,.04); display:grid; place-items:center; color: rgba(233,236,255,.55); font-weight:600; overflow:hidden; position:relative; } .ph span{position:relative; z-index:2} .ph:before{ content:""; position:absolute; inset:-1px; z-index:1; background: radial-gradient(220px 140px at 30% 20%, rgba(124,92,255,.20), transparent 60%), radial-gradient(220px 140px at 70% 70%, rgba(255,90,165,.18), transparent 60%); } .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px} button{ cursor:pointer;border:none; padding:11px 14px;border-radius:14px; font-weight:700;color:var(--text); background:linear-gradient(135deg, rgba(255,90,165,.35), rgba(124,92,255,.35)); border:1px solid rgba(255,255,255,.18); box-shadow: 0 14px 30px rgba(0,0,0,.30); } button.secondary{background:rgba(255,255,255,.06);box-shadow:none;} .note{margin-top:10px;font-size:13px;color: rgba(233,236,255,.65);} .span6{grid-column: span 12} @media (min-width: 860px){ .span6{grid-column: span 6} .span7{grid-column: span 7} .span5{grid-column: span 5} } .modal{ position:fixed; inset:0; display:none; align-items:center; justify-content:center; background: rgba(0,0,0,.55); padding:18px; z-index:999; } .modal.open{display:flex} .modal .sheet{ width:min(620px, 100%); border-radius:22px; border:1px solid var(--border); background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05)); box-shadow: var(--shadow); backdrop-filter: blur(12px); padding:18px; } .sheet h3{margin:0 0 10px} textarea{ width:100%; min-height:140px; resize:vertical; border-radius:16px; border:1px solid rgba(255,255,255,.18); background: rgba(0,0,0,.20); color: var(--text); padding:12px;font-size:14px;outline:none; } footer{margin-top:22px;text-align:center;color: rgba(233,236,255,.60);font-size:13px;} </style> </head> <body> <div class="wrap"> <div class="pill" title="Sayfa aktif"> <span class="dot"></span> <span>❤️</span> </div> <header class="hero"> <div class="hero-inner"> <div> <h1 id="title">Arif ❤️ Ayşe</h1> <p class="sub">Bazı şeyler çok küçük başlar… sonra insanın en sevdiği yer olur.</p> <div class="names"> <span class="tag" id="name1">Arif</span> <span class="heart">♥</span> <span class="tag" id="name2">Ayşe</span> </div> </div> <div class="muted" style="font-size:14px"> <span>Başlangıç tarihi:</span> <b id="startDateText" style="color:var(--text)"></b> </div> </div> </header> <section class="grid"> <div class="card span6"> <h2>Ne kadar oldu?</h2> <div class="muted">02.01.2026’dan beri…</div> <div class="count" aria-label="Sayaç"> <div class="box"><div class="num" id="days">0</div><div class="lbl">Gün</div></div> <div class="box"><div class="num" id="hours">00</div><div class="lbl">Saat</div></div> <div class="box"><div class="num" id="mins">00</div><div class="lbl">Dakika</div></div> <div class="box"><div class="num" id="secs">00</div><div class="lbl">Saniye</div></div> </div> <div class="note" id="sinceLine"></div> <div class="btnrow"> <button id="openLetter">Sana bir mesajım var</button> <button class="secondary" id="copyLink">Linki kopyala</button> </div> <div class="note">❤️</div> </div> <div class="card span6"> <h2>Bizim hikayemiz</h2> <div class="timeline"> <div class="item"> <div class="badge">✨</div> <div> <b>İlk gün</b> <p>02.01.2026… ve her şey başka bir güzelliğe döndü.</p> </div> </div> <div class="item"> <div class="badge">💌</div> <div> <b>Küçük bir not</b> <p>“Kalbimde senden başka bir dünyaya yer yok.”</p> </div> </div> <div class="item"> <div class="badge">🎈</div> <div> <b>Bir sonraki plan</b> <p>Birlikte daha çok anı biriktirmek.</p> </div> </div> </div> </div> <div class="card span7"> <h2>Fotoğraflar</h2> <div class="muted">Buraya daha çok fotoğraf eklemek dilekleri ile.</div> <div class="gallery"> <div class="ph"> <img src="images/31.jpg" alt="1"> </div> <div class="ph"> <img src="images/2.jpg" alt="2"> </div> <div class="ph"> <img src="images/3.jpg" alt="3"> </div> <div class="ph"> <img src="images/4.jpg" alt="4"> </div> <div class="ph"> <img src="images/5.jpg" alt="5"> </div> <div class="ph"> <img src="images/6.jpg" alt="6"> </div> </div> <div class="card span5"> <h2>Şarkımız</h2> <div class="muted">Beraber dinleyelim 🎧</div> <div id="spotifyWrap" style=" margin-top:12px; border-radius:18px; overflow:hidden; border:1px solid rgba(255,255,255,.18); opacity:0; transform: translateY(12px); transition: all .8s ease; "> <div style=" text-align:center; margin:8px 0; font-size:14px; opacity:.85; "> 🎧 Bizim şarkımız </div> <iframe id="spotifyPlayer" style="border-radius:12px" src="https://open.spotify.com/embed/track/5rElOY8KtcQFqlSZ7hgEuC?utm_source=generator" width="100%" height="152" frameborder="0" allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture" loading="lazy"> </iframe> <div id="nowPlaying" style=" display:none; text-align:center; margin:8px 0; font-size:13px; opacity:.85; "> 🎵 <b>Ey Aşk – Sezen Aksu</b> çalıyor </div> </div> <div class="note">💖</div> </div> </section> <footer> <div>© <span id="year"></span> — Arif & Ayşe.</div> <div style="margin-top:6px">“İyi ki.”</div> </footer> </div> <div class="modal" id="modal"> <div class="sheet"> <h3>Ayşe’ye 💌</h3> <textarea id="letter" placeholder="Buraya sevgiline mesajını yaz..."></textarea> <div class="btnrow" style="margin-top:12px"> <button id="saveLetter">Kaydet</button> <button class="secondary" id="closeLetter">Kapat</button> </div> <div class="note"> Not: Mesaj tarayıcıda saklanır. (Sayfayı açan kişide görünür.) </div> </div> </div> <script> const SETTINGS = { name1: "Arif", name2: "Ayşe", // 02.01.2026 için: 2 Ocak 2026, 00:00 Türkiye saati (istersen saati değiştir) startDate: "2026-01-02T00:00:00+03:00", passcode: "" // Şifre istemiyorum: boş }; const $ = (s)=>document.querySelector(s); $("#name1").textContent = SETTINGS.name1; $("#name2").textContent = SETTINGS.name2; $("#title").textContent = ${SETTINGS.name1} ❤️ ${SETTINGS.name2}; document.title = ${SETTINGS.name1} ❤️ ${SETTINGS.name2}; $("#year").textContent = new Date().getFullYear(); const start = new Date(SETTINGS.startDate); const startText = new Intl.DateTimeFormat("tr-TR", { year:"numeric", month:"long", day:"2-digit", hour:"2-digit", minute:"2-digit" }).format(start); $("#startDateText").textContent = startText; function pad(n){ return String(n).padStart(2,"0"); } function tick(){ const now = new Date(); let diff = Math.max(0, now - start); const days = Math.floor(diff / (1000*60*60*24)); diff -= days*(1000*60*60*24); const hours = Math.floor(diff / (1000*60*60)); diff -= hours*(1000*60*60); const mins = Math.floor(diff / (1000*60)); diff -= mins*(1000*60); const secs = Math.floor(diff / 1000); $("#days").textContent = days; $("#hours").textContent = pad(hours); $("#mins").textContent = pad(mins); $("#secs").textContent = pad(secs); $("#sinceLine").textContent = ${SETTINGS.name1} ve ${SETTINGS.name2}: ${days} gündür birlikte.; } tick(); setInterval(tick, 1000); // Modal (mesaj) const modal = $("#modal"); const letter = $("#letter"); // Mesajı hazır bırakıyorum: const defaultLetter = "Buraya tıkla💖"; const saved = localStorage.getItem("love_letter"); letter.value = saved ?? defaultLetter; $("#openLetter").addEventListener("click", ()=> modal.classList.add("open")); $("#closeLetter").addEventListener("click", ()=> modal.classList.remove("open")); modal.addEventListener("click", (e)=>{ if(e.target === modal) modal.classList.remove("open"); }); $("#saveLetter").addEventListener("click", ()=>{ localStorage.setItem("love_letter", letter.value.trim()); alert("Kaydedildi 💖"); modal.classList.remove("open"); }); // Link kopyala $("#copyLink").addEventListener("click", async ()=>{ try{ await navigator.clipboard.writeText(location.href); alert("Link kopyalandı!"); }catch{ prompt("Kopyalamak için:", location.href); } }); // Spotify alanı yumuşak giriş window.addEventListener("load", () => { const wrap = document.getElementById("spotifyWrap"); if (wrap) { setTimeout(() => { wrap.style.opacity = "1"; wrap.style.transform = "translateY(0)"; }, 600); } }); // Kullanıcı player'a dokununca "çalıyor" yazısını göster const spotifyPlayer = document.getElementById("spotifyPlayer"); const nowPlaying = document.getElementById("nowPlaying"); if (spotifyPlayer && nowPlaying) { spotifyPlayer.addEventListener("click", () => { nowPlaying.style.display = "block"; }); } </script> </body> </html>
+<!doctype html>
+<html lang="tr">
+<head>
+  <meta charset="utf-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Arif ❤️ Ayşe</title>
+  <meta name="description" content="Arif ve Ayşe'ye özel küçük bir site." />
+  <style>
+    :root{
+      --bg:#0b0f1a;
+      --card:rgba(255,255,255,.06);
+      --text:#e9ecff;
+      --muted:rgba(233,236,255,.75);
+      --accent:#ff5aa5;
+      --accent2:#7c5cff;
+      --border:rgba(255,255,255,.14);
+      --shadow: 0 18px 60px rgba(0,0,0,.55);
+      --radius:20px;
+    }
+    *{box-sizing:border-box}
+    html,body{height:100%}
+    body{
+      margin:0;
+      font-family: ui-sans-serif, system-ui, -apple-system, Segoe UI, Roboto, Arial;
+      color:var(--text);
+      background:
+        radial-gradient(1200px 800px at 20% 0%, rgba(124,92,255,.35), transparent 60%),
+        radial-gradient(900px 600px at 90% 20%, rgba(255,90,165,.28), transparent 55%),
+        radial-gradient(1000px 700px at 50% 100%, rgba(90,255,209,.08), transparent 60%),
+        var(--bg);
+      overflow-x:hidden;
+    }
+    .wrap{max-width:1000px;margin:0 auto;padding:28px 18px 80px}
+    .pill{
+      display:inline-flex;gap:8px;align-items:center;
+      padding:10px 14px;border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.09), rgba(255,255,255,.04));
+      border-radius:999px;
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      backdrop-filter: blur(10px);
+      font-size:14px;color:var(--muted);
+    }
+    .pill .dot{
+      width:10px;height:10px;border-radius:50%;
+      background:radial-gradient(circle at 30% 30%, #fff, var(--accent));
+      box-shadow: 0 0 18px rgba(255,90,165,.7);
+    }
+    .hero{
+      margin-top:16px;
+      padding:26px;
+      border-radius:var(--radius);
+      border:1px solid var(--border);
+      background:linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      box-shadow:var(--shadow);
+      backdrop-filter: blur(10px);
+      position:relative;
+      overflow:hidden;
+    }
+    .hero:before{
+      content:"";
+      position:absolute; inset:-2px;
+      background: radial-gradient(600px 200px at 20% 0%, rgba(255,90,165,.25), transparent 60%),
+                  radial-gradient(500px 220px at 80% 20%, rgba(124,92,255,.25), transparent 65%);
+      pointer-events:none;
+    }
+    .hero-inner{position:relative; display:grid; gap:18px}
+    h1{margin:0;font-size:clamp(28px, 5vw, 44px);letter-spacing:-.02em}
+    .sub{margin:0;color:var(--muted);font-size:16px;line-height:1.55}
+    .names{display:flex;flex-wrap:wrap; gap:10px;align-items:center;margin-top:8px;}
+    .tag{
+      padding:8px 12px;border-radius:999px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      color:var(--text);
+      font-weight:600;
+    }
+    .heart{
+      width:38px;height:38px;display:grid;place-items:center;
+      border-radius:12px;
+      background:linear-gradient(135deg, rgba(255,90,165,.25), rgba(124,92,255,.25));
+      border:1px solid var(--border);
+      box-shadow: 0 10px 30px rgba(0,0,0,.25);
+      font-size:20px;
+      animation: pulse 1.8s ease-in-out infinite;
+    }
+    @keyframes pulse{0%,100%{transform:scale(1)}50%{transform:scale(1.06)}}
+
+    .grid{margin-top:18px;display:grid;grid-template-columns: repeat(12, 1fr);gap:14px;}
+    .card{
+      grid-column: span 12;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.08), rgba(255,255,255,.04));
+      border-radius:var(--radius);
+      padding:18px;
+      box-shadow: 0 14px 40px rgba(0,0,0,.35);
+      backdrop-filter: blur(10px);
+    }
+    .card h2{margin:0 0 10px;font-size:18px}
+    .muted{color:var(--muted)}
+    .count{
+      display:grid;
+      grid-template-columns: repeat(4, minmax(0,1fr));
+      gap:10px;
+      margin-top:12px;
+    }
+    .box{
+      padding:14px 12px;
+      border-radius:16px;
+      border:1px solid var(--border);
+      background:rgba(255,255,255,.06);
+      text-align:center;
+    }
+    .num{font-size:26px;font-weight:800;letter-spacing:-.02em}
+    .lbl{font-size:12px;color:var(--muted);margin-top:4px}
+
+    .timeline{display:grid; gap:10px; margin-top:6px;}
+    .item{
+      display:flex; gap:12px; align-items:flex-start;
+      padding:12px;border-radius:16px;border:1px solid var(--border);
+      background:rgba(255,255,255,.05);
+    }
+    .badge{
+      min-width:38px;height:38px;border-radius:12px;
+      display:grid;place-items:center;
+      background:rgba(255,90,165,.16);
+      border:1px solid rgba(255,90,165,.22);
+      font-size:18px;
+    }
+    .item b{display:block}
+    .item p{margin:4px 0 0;color:var(--muted);line-height:1.5}
+
+    .gallery{
+      display:grid;
+      grid-template-columns: repeat(3, minmax(0,1fr));
+      gap:10px;margin-top:10px;
+    }
+    .ph{
+      aspect-ratio: 4 / 3;
+      border-radius:16px;
+      border:1px dashed rgba(255,255,255,.22);
+      background: rgba(255,255,255,.04);
+      display:grid; place-items:center;
+      color: rgba(233,236,255,.55);
+      font-weight:600;
+      overflow:hidden; position:relative;
+    }
+    .ph span{position:relative; z-index:2}
+    .ph:before{
+      content:""; position:absolute; inset:-1px; z-index:1;
+      background: radial-gradient(220px 140px at 30% 20%, rgba(124,92,255,.20), transparent 60%),
+                  radial-gradient(220px 140px at 70% 70%, rgba(255,90,165,.18), transparent 60%);
+    }
+
+    .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
+    button{
+      cursor:pointer;border:none;
+      padding:11px 14px;border-radius:14px;
+      font-weight:700;color:var(--text);
+      background:linear-gradient(135deg, rgba(255,90,165,.35), rgba(124,92,255,.35));
+      border:1px solid rgba(255,255,255,.18);
+      box-shadow: 0 14px 30px rgba(0,0,0,.30);
+    }
+    button.secondary{background:rgba(255,255,255,.06);box-shadow:none;}
+    .note{margin-top:10px;font-size:13px;color: rgba(233,236,255,.65);}
+
+    .span6{grid-column: span 12}
+    @media (min-width: 860px){
+      .span6{grid-column: span 6}
+      .span7{grid-column: span 7}
+      .span5{grid-column: span 5}
+    }
+
+    .modal{
+      position:fixed; inset:0; display:none;
+      align-items:center; justify-content:center;
+      background: rgba(0,0,0,.55);
+      padding:18px; z-index:999;
+    }
+    .modal.open{display:flex}
+    .modal .sheet{
+      width:min(620px, 100%);
+      border-radius:22px;
+      border:1px solid var(--border);
+      background: linear-gradient(180deg, rgba(255,255,255,.10), rgba(255,255,255,.05));
+      box-shadow: var(--shadow);
+      backdrop-filter: blur(12px);
+      padding:18px;
+    }
+    .sheet h3{margin:0 0 10px}
+    textarea{
+      width:100%; min-height:140px; resize:vertical;
+      border-radius:16px;
+      border:1px solid rgba(255,255,255,.18);
+      background: rgba(0,0,0,.20);
+      color: var(--text);
+      padding:12px;font-size:14px;outline:none;
+    }
+    footer{margin-top:22px;text-align:center;color: rgba(233,236,255,.60);font-size:13px;}
+  </style>
+</head>
+<body>
+  <div class="wrap">
+    <div class="pill" title="Sayfa aktif">
+      <span class="dot"></span>
+      <span>Bu sayfa Arif & Ayşe için 💖</span>
+    </div>
+
+    <header class="hero">
+      <div class="hero-inner">
+        <div>
+          <h1 id="title">Arif ❤️ Ayşe</h1>
+          <p class="sub">Bazı şeyler çok küçük başlar… sonra insanın en sevdiği yer olur.</p>
+
+          <div class="names">
+            <span class="tag" id="name1">Arif</span>
+            <span class="heart">♥</span>
+            <span class="tag" id="name2">Ayşe</span>
+          </div>
+        </div>
+
+        <div class="muted" style="font-size:14px">
+          <span>Başlangıç tarihi:</span>
+          <b id="startDateText" style="color:var(--text)"></b>
+        </div>
+      </div>
+    </header>
+
+    <section class="grid">
+      <div class="card span6">
+        <h2>Ne kadar oldu?</h2>
+        <div class="muted">02.01.2026’ten beri…</div>
+        <div class="count" aria-label="Sayaç">
+          <div class="box"><div class="num" id="days">0</div><div class="lbl">Gün</div></div>
+          <div class="box"><div class="num" id="hours">00</div><div class="lbl">Saat</div></div>
+          <div class="box"><div class="num" id="mins">00</div><div class="lbl">Dakika</div></div>
+          <div class="box"><div class="num" id="secs">00</div><div class="lbl">Saniye</div></div>
+        </div>
+        <div class="note" id="sinceLine"></div>
+
+        <div class="btnrow">
+          <button id="openLetter">Sana bir mesajım var</button>
+          <button class="secondary" id="copyLink">Linki kopyala</button>
+        </div>
+        <div class="note">Şifre yok ✅</div>
+      </div>
+
+      <div class="card span6">
+        <h2>Bizim hikayemiz</h2>
+        <div class="timeline">
+          <div class="item">
+            <div class="badge">✨</div>
+            <div>
+              <b>İlk gün</b>
+              <p>02.01.2026… ve her şey başka bir güzelliğe döndü.</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="badge">💌</div>
+            <div>
+              <b>Küçük bir not</b>
+              <p>“Mesajı sana bıraktım.”</p>
+            </div>
+          </div>
+          <div class="item">
+            <div class="badge">🎈</div>
+            <div>
+              <b>Bir sonraki plan</b>
+              <p>Birlikte daha çok anı biriktirmek.</p>
+            </div>
+          </div>
+        </div>
+      </div>
+
+      <div class="card span7">
+        <h2>Fotoğraflar</h2>
+        <div class="muted">İstersen buraya birlikte fotoğraflarınızı koyarız.</div>
+        <div class="gallery">
+          <div class="ph"><span>Foto 1</span></div>
+          <div class="ph"><span>Foto 2</span></div>
+          <div class="ph"><span>Foto 3</span></div>
+          <div class="ph"><span>Foto 4</span></div>
+          <div class="ph"><span>Foto 5</span></div>
+          <div class="ph"><span>Foto 6</span></div>
+        </div>
+        <div class="note">Fotoğrafları gönderirsen ben bu kutulara yerleştireceğin hazır kodu da yazarım.</div>
+      </div>
+
+      <div class="card span5">
+        <h2>Şarkımız</h2>
+        <div class="muted">https://music.youtube.com/watch?v=tpLHJput8mc&list=RDAMVMod1bIU2IGKg.</div>
+        <div style="margin-top:10px;border-radius:18px;overflow:hidden;border:1px solid var(--border)">
+          <iframe
+            style="border-radius:12px"
+            src="https://music.youtube.com/watch?v=tpLHJput8mc&list=RDAMVMod1bIU2IGKg"
+            width="100%" height="152" frameborder="0" allowfullscreen=""
+            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
+            loading="lazy">
+          </iframe>
+        </div>
+        <div class="note"></div>
+      </div>
+    </section>
+
+    <footer>
+      <div>© <span id="year"></span> — Arif & Ayşe.</div>
+      <div style="margin-top:6px">“İyi ki.”</div>
+    </footer>
+  </div>
+
+  <div class="modal" id="modal">
+    <div class="sheet">
+      <h3>Ayşe’ye 💌</h3>
+      <textarea id="letter" placeholder="Seni Çok Seviyorum ❤️"></textarea>
+      <div class="btnrow" style="margin-top:12px">
+        <button id="saveLetter">Kaydet</button>
+        <button class="secondary" id="closeLetter">Kapat</button>
+      </div>
+      <div class="note">
+        Not: Mesaj tarayıcıda saklanır. (Sayfayı açan kişide görünür.)
+      </div>
+    </div>
+  </div>
+
+  <script>
+    const SETTINGS = {
+      name1: "Arif",
+      name2: "Ayşe",
+      // 02.01.2026 için: 2 Ocak 2026, 00:00 Türkiye saati (istersen saati değiştir)
+      startDate: "2026-01-02T20:00:00+03:00",
+      passcode: "" // Şifre istemiyorum: boş
+    };
+
+    const $ = (s)=>document.querySelector(s);
+    $("#name1").textContent = SETTINGS.name1;
+    $("#name2").textContent = SETTINGS.name2;
+    $("#title").textContent = `${SETTINGS.name1} ❤️ ${SETTINGS.name2}`;
+    document.title = `${SETTINGS.name1} ❤️ ${SETTINGS.name2}`;
+    $("#year").textContent = new Date().getFullYear();
+
+    const start = new Date(SETTINGS.startDate);
+    const startText = new Intl.DateTimeFormat("tr-TR", {
+      year:"numeric", month:"long", day:"2-digit", hour:"2-digit", minute:"2-digit"
+    }).format(start);
+    $("#startDateText").textContent = startText;
+
+    function pad(n){ return String(n).padStart(2,"0"); }
+
+    function tick(){
+      const now = new Date();
+      let diff = Math.max(0, now - start);
+
+      const days = Math.floor(diff / (1000*60*60*24));
+      diff -= days*(1000*60*60*24);
+      const hours = Math.floor(diff / (1000*60*60));
+      diff -= hours*(1000*60*60);
+      const mins = Math.floor(diff / (1000*60));
+      diff -= mins*(1000*60);
+      const secs = Math.floor(diff / 1000);
+
+      $("#days").textContent = days;
+      $("#hours").textContent = pad(hours);
+      $("#mins").textContent = pad(mins);
+      $("#secs").textContent = pad(secs);
+
+      $("#sinceLine").textContent = `${SETTINGS.name1} ve ${SETTINGS.name2}: ${days} gündür birlikte.`;
+    }
+    tick();
+    setInterval(tick, 1000);
+
+    // Modal (mesaj)
+    const modal = $("#modal");
+    const letter = $("#letter");
+
+    // Mesajı hazır bırakıyorum:
+    const defaultLetter = "Mesajı sana bıraktım 💖";
+    const saved = localStorage.getItem("love_letter");
+    letter.value = saved ?? defaultLetter;
+
+    $("#openLetter").addEventListener("click", ()=> modal.classList.add("open"));
+    $("#closeLetter").addEventListener("click", ()=> modal.classList.remove("open"));
+    modal.addEventListener("click", (e)=>{ if(e.target === modal) modal.classList.remove("open"); });
+
+    $("#saveLetter").addEventListener("click", ()=>{
+      localStorage.setItem("love_letter", letter.value.trim());
+      alert("Kaydedildi 💖");
+      modal.classList.remove("open");
+    });
+
+    // Link kopyala
+    $("#copyLink").addEventListener("click", async ()=>{
+      try{
+        await navigator.clipboard.writeText(location.href);
+        alert("Link kopyalandı!");
+      }catch{
+        prompt("Kopyalamak için:", location.href);
+      }
+    });
+  </script>
+</body>
+</html>
