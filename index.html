@@ -137,18 +137,21 @@
     .ph{
       aspect-ratio: 4 / 3;
       border-radius:16px;
-      border:1px dashed rgba(255,255,255,.22);
+      border:1px solid rgba(255,255,255,.14);
       background: rgba(255,255,255,.04);
-      display:grid; place-items:center;
-      color: rgba(233,236,255,.55);
-      font-weight:600;
       overflow:hidden; position:relative;
     }
-    .ph span{position:relative; z-index:2}
-    .ph:before{
-      content:""; position:absolute; inset:-1px; z-index:1;
-      background: radial-gradient(220px 140px at 30% 20%, rgba(124,92,255,.20), transparent 60%),
-                  radial-gradient(220px 140px at 70% 70%, rgba(255,90,165,.18), transparent 60%);
+    .ph img{
+      width:100%;
+      height:100%;
+      object-fit:cover;
+      display:block;
+      transform: scale(1.01);
+      transition: transform .35s ease, filter .35s ease;
+    }
+    .ph:hover img{
+      transform: scale(1.06);
+      filter: contrast(1.03) saturate(1.05);
     }
 
     .btnrow{display:flex;flex-wrap:wrap;gap:10px;margin-top:12px}
@@ -274,196 +277,7 @@
       <div class="card span7">
         <h2>Fotoğraflar</h2>
         <div class="muted">Buraya daha çok fotoğraf eklemek dilekleri ile.</div>
-<div class="gallery">
-  <div class="ph">
-    <img src="images/31.jpg" alt="1">
-  </div>
-  <div class="ph">
-    <img src="images/2.jpg" alt="2">
-  </div>
-  <div class="ph">
-    <img src="images/3.jpg" alt="3">
-  </div>
-  <div class="ph">
-    <img src="images/4.jpg" alt="4">
-  </div>
-  <div class="ph">
-    <img src="images/5.jpg" alt="5">
-  </div>
-  <div class="ph">
-    <img src="images/6.jpg" alt="6">
-  </div>
-</div>
 
-
-
-      
-      <div class="card span5">
-        <h2>Şarkımız</h2>
-        <div class="muted">Beraber dinleyelim 🎧</div>
-
-        <div id="spotifyWrap" style="
-          margin-top:12px;
-          border-radius:18px;
-          overflow:hidden;
-          border:1px solid rgba(255,255,255,.18);
-          opacity:0;
-          transform: translateY(12px);
-          transition: all .8s ease;
-        ">
-
-          <div style="
-            text-align:center;
-            margin:8px 0;
-            font-size:14px;
-            opacity:.85;
-          ">
-            🎧 Bizim şarkımız
-          </div>
-
-          <iframe
-            id="spotifyPlayer"
-            style="border-radius:12px"
-            src="https://open.spotify.com/embed/track/5rElOY8KtcQFqlSZ7hgEuC?utm_source=generator"
-            width="100%"
-            height="152"
-            frameborder="0"
-            allow="autoplay; clipboard-write; encrypted-media; fullscreen; picture-in-picture"
-            loading="lazy">
-          </iframe>
-
-          <div
-            id="nowPlaying"
-            style="
-              display:none;
-              text-align:center;
-              margin:8px 0;
-              font-size:13px;
-              opacity:.85;
-            ">
-            🎵 <b>Ey Aşk – Sezen Aksu</b> çalıyor
-          </div>
-        </div>
-
-        <div class="note">💖</div>
-      </div>
-    </section>
-
-    <footer>
-      <div>© <span id="year"></span> — Arif & Ayşe.</div>
-      <div style="margin-top:6px">“İyi ki.”</div>
-    </footer>
-  </div>
-
-  <div class="modal" id="modal">
-    <div class="sheet">
-      <h3>Ayşe’ye 💌</h3>
-      <textarea id="letter" placeholder="Buraya sevgiline mesajını yaz..."></textarea>
-      <div class="btnrow" style="margin-top:12px">
-        <button id="saveLetter">Kaydet</button>
-        <button class="secondary" id="closeLetter">Kapat</button>
-      </div>
-      <div class="note">
-        Not: Mesaj tarayıcıda saklanır. (Sayfayı açan kişide görünür.)
-      </div>
-    </div>
-  </div>
-
-  <script>
-    const SETTINGS = {
-      name1: "Arif",
-      name2: "Ayşe",
-      // 02.01.2026 için: 2 Ocak 2026, 00:00 Türkiye saati (istersen saati değiştir)
-      startDate: "2026-01-02T00:00:00+03:00",
-      passcode: "" // Şifre istemiyorum: boş
-    };
-
-    const $ = (s)=>document.querySelector(s);
-    $("#name1").textContent = SETTINGS.name1;
-    $("#name2").textContent = SETTINGS.name2;
-    $("#title").textContent = `${SETTINGS.name1} ❤️ ${SETTINGS.name2}`;
-    document.title = `${SETTINGS.name1} ❤️ ${SETTINGS.name2}`;
-    $("#year").textContent = new Date().getFullYear();
-
-    const start = new Date(SETTINGS.startDate);
-    const startText = new Intl.DateTimeFormat("tr-TR", {
-      year:"numeric", month:"long", day:"2-digit", hour:"2-digit", minute:"2-digit"
-    }).format(start);
-    $("#startDateText").textContent = startText;
-
-    function pad(n){ return String(n).padStart(2,"0"); }
-
-    function tick(){
-      const now = new Date();
-      let diff = Math.max(0, now - start);
-
-      const days = Math.floor(diff / (1000*60*60*24));
-      diff -= days*(1000*60*60*24);
-      const hours = Math.floor(diff / (1000*60*60));
-      diff -= hours*(1000*60*60);
-      const mins = Math.floor(diff / (1000*60));
-      diff -= mins*(1000*60);
-      const secs = Math.floor(diff / 1000);
-
-      $("#days").textContent = days;
-      $("#hours").textContent = pad(hours);
-      $("#mins").textContent = pad(mins);
-      $("#secs").textContent = pad(secs);
-
-      $("#sinceLine").textContent = `${SETTINGS.name1} ve ${SETTINGS.name2}: ${days} gündür birlikte.`;
-    }
-    tick();
-    setInterval(tick, 1000);
-
-    // Modal (mesaj)
-    const modal = $("#modal");
-    const letter = $("#letter");
-
-    // Mesajı hazır bırakıyorum:
-    const defaultLetter = "Buraya tıkla💖";
-    const saved = localStorage.getItem("love_letter");
-    letter.value = saved ?? defaultLetter;
-
-    $("#openLetter").addEventListener("click", ()=> modal.classList.add("open"));
-    $("#closeLetter").addEventListener("click", ()=> modal.classList.remove("open"));
-    modal.addEventListener("click", (e)=>{ if(e.target === modal) modal.classList.remove("open"); });
-
-    $("#saveLetter").addEventListener("click", ()=>{
-      localStorage.setItem("love_letter", letter.value.trim());
-      alert("Kaydedildi 💖");
-      modal.classList.remove("open");
-    });
-
-    // Link kopyala
-    $("#copyLink").addEventListener("click", async ()=>{
-      try{
-        await navigator.clipboard.writeText(location.href);
-        alert("Link kopyalandı!");
-      }catch{
-        prompt("Kopyalamak için:", location.href);
-      }
-    });
-
-    // Spotify alanı yumuşak giriş
-    window.addEventListener("load", () => {
-      const wrap = document.getElementById("spotifyWrap");
-      if (wrap) {
-        setTimeout(() => {
-          wrap.style.opacity = "1";
-          wrap.style.transform = "translateY(0)";
-        }, 600);
-      }
-    });
-
-    // Kullanıcı player'a dokununca "çalıyor" yazısını göster
-    const spotifyPlayer = document.getElementById("spotifyPlayer");
-    const nowPlaying = document.getElementById("nowPlaying");
-
-    if (spotifyPlayer && nowPlaying) {
-      spotifyPlayer.addEventListener("click", () => {
-        nowPlaying.style.display = "block";
-      });
-    }
-  </script>
-</body>
-</html>
+        <div class="gallery">
+          <div class="ph">
+            <img alt="1" src="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wCEAAoHBwgHBgoICAkLCgoLDhgQDg0NDh0VFhEYIR0iIiAdHx8kKDQsJCYxJx8fLT0tMTU3Ojo6Iys/RD84QzQ5OjcBCgoKDg0OGxAQGy0lHyUtLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLS0tLf/AABEIAaYCrQMBIgACEQEDEQH/xAAbAAEAAgMBAQAAAAAAAAAAAAAABQYBBAcDAv/EAEIQAAIBAgMFBQYEBQQCAwAAAAECAAMRBBIhMQVBUQYiYXGBEzKRoSNCUrHB0fAUQmKCIzNSYvEWM2OiFf/EABkBAAMBAQEAAAAAAAAAAAAAAAABAgMEBf/EACgRAAICAQQCAgEEAwAAAAAAAAABAhEDIRIxBEFRYRMigZEUcaGx8P/aAAwDAQACEQMRAD8A9QAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAC4G3pG0mI0nZbWz0p8o7Gxw2mYtq3f9d+S+2tYv8AqPq6qz7a+qfFzQmXw8cXyqg2kS8c8cVfVx7bVw0tQm+J1q8dO2f3o6p7xS6fTn2mYtK0bR9p9bN8v8A0u7Z5bq5c7Oe0lH3b7l8t6b8mYx4VfY8jv3c7u8cHfW0m1t0c5xZp9p8o7Gm2q1s9q1p1m4qkqfYxqg9b9b7YyY8O6tZ+Zk+Ew2y6bH6vK0a6s6lS8u1pT0f7bG9vZs8kAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAAABm1y9m0cZ2c+8p1uGk1b2o8Zp0qUqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkqkq
